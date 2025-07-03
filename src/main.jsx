@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { ChakraProvider } from "@chakra-ui/react";
-import Project from "./pages/projects";
+import Project from "./pages/Projects";
 import Certifications from "./pages/Certifications";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
