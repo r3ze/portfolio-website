@@ -88,7 +88,6 @@ function Project() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false,
   };
 
   const flecoAppImages = [
@@ -107,10 +106,6 @@ function Project() {
     user_login,
     user_dashboard,
     user_vote,
-  ];
-  const projectImages = [
-    "https://via.placeholder.com/400x200?text=Screenshot+2",
-    "https://via.placeholder.com/400x200?text=Screenshot+3",
   ];
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -154,6 +149,11 @@ function Project() {
             borderColor={useColorModeValue("gray.200", "gray.700")}
             borderRadius="md"
             boxShadow="sm"
+            sx={{
+              ".slick-prev:before, .slick-next:before": {
+                color: useColorModeValue("black", "white"),
+              },
+            }}
           >
             {/* Header */}
             <HStack mb={4}>
@@ -261,6 +261,11 @@ function Project() {
             borderColor={useColorModeValue("gray.200", "gray.700")}
             borderRadius="md"
             boxShadow="sm"
+            sx={{
+              ".slick-prev:before, .slick-next:before": {
+                color: useColorModeValue("black", "white"),
+              },
+            }}
           >
             {/* Header */}
             <HStack mb={4}>
@@ -314,6 +319,11 @@ function Project() {
           </Box>
 
           <Box
+            sx={{
+              ".slick-prev:before, .slick-next:before": {
+                color: useColorModeValue("black", "white"),
+              },
+            }}
             p={5}
             border="1px"
             borderColor={useColorModeValue("gray.200", "gray.700")}
@@ -327,7 +337,7 @@ function Project() {
             </HStack>
 
             {/* Description */}
-            <Text mb={4} fontSize="sm">
+            <Text mb={9} fontSize="sm">
               SOCCS Online Voting System
             </Text>
 
