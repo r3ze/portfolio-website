@@ -72,23 +72,19 @@ function App() {
   const steps = [
     {
       title: "Bachelor of Science in Information Technology",
-      institution: "Laguna State Polytechnic University - 2021 to Present",
+      institution: "Laguna State Polytechnic University - 2021 to 2025",
       description: "Specialized in web and mobile development.",
-    },
-    {
-      title: "Information and Communication Technology (ICT)",
-      institution: "AVM Foundation - 2019 to 2021",
-      description:
-        "Gained hands-on experience in full-stack development and agile practices.",
-    },
-    {
-      title: "High School Diploma",
-      institution: "Pagsanjan Integrated National High School - 2016 to 2019",
-      description:
-        "Developed a strong foundation in critical thinking, communication, and teamwork through a variety of academic subjects and extracurricular activities.",
     },
 
     // Add more steps as needed
+  ];
+  const expSteps = [
+    {
+      title: "Programmer - Intern",
+      company: "Government Service Insurance System",
+      description:
+        "Developed a monitoring and automation system to streamline processes and increase operational efficiency.",
+    },
   ];
 
   useEffect(() => {
@@ -271,53 +267,125 @@ function App() {
                   {" "}
                   <Tag size="sm">Appwrite</Tag>
                 </WrapItem>
+                <WrapItem>
+                  {" "}
+                  <Tag size="sm">MongoDb</Tag>
+                </WrapItem>
+                <WrapItem>
+                  {" "}
+                  <Tag size="sm">Express.js</Tag>
+                </WrapItem>
+                <WrapItem>
+                  {" "}
+                  <Tag size="sm">Node.js</Tag>
+                </WrapItem>
+                <WrapItem>
+                  {" "}
+                  <Tag size="sm">React Native</Tag>
+                </WrapItem>
+                <WrapItem>
+                  {" "}
+                  <Tag size="sm">Git</Tag>
+                </WrapItem>
+                <WrapItem>
+                  {" "}
+                  <Tag size="sm">Github</Tag>
+                </WrapItem>
               </Wrap>
             </Box>
           </Box>
           {/* Education Section */}
-          <Box
-            height="fit-content"
-            p={6}
-            border="1px"
-            borderRadius="md"
-            borderColor={useColorModeValue("gray.200", "gray.700")}
-            bg={useColorModeValue("white", "#111111")}
-          >
-            <Text fontSize="xl" fontWeight="bold" mb={4}>
-              Education
-            </Text>
-
-            <Stepper
-              size="xs"
-              colorScheme="gray"
-              orientation="vertical"
-              gap="0"
+          <Box>
+            <Box
+              height="fit-content"
+              p={6}
+              border="1px"
+              borderRadius="md"
+              borderColor={useColorModeValue("gray.200", "gray.700")}
+              bg={useColorModeValue("white", "#111111")}
             >
-              {steps.map((step, index) => (
-                <Step key={index}>
-                  <StepIndicator
-                    bg={
-                      index === 0
-                        ? useColorModeValue("black", "white") // Distinct color for the top step
-                        : useColorModeValue("white", "gray.600") // Subtle background for others
-                    }
-                    borderColor={useColorModeValue("gray", "gray.300")}
-                  />
-                  <VStack align="start" spacing={1} ml={4}>
-                    <Text fontSize="md" fontWeight="semibold">
-                      {step.title}
-                    </Text>
-                    <Text fontSize="sm" color="gray.500">
-                      {step.institution}
-                    </Text>
-                    <Text fontSize="sm" color="gray.600">
-                      {step.description}
-                    </Text>
-                  </VStack>
-                  <StepSeparator borderColor="gray.300" />
-                </Step>
-              ))}
-            </Stepper>
+              <Text fontSize="xl" fontWeight="bold" mb={4}>
+                Education
+              </Text>
+
+              <Stepper
+                size="xs"
+                colorScheme="gray"
+                orientation="vertical"
+                gap="0"
+              >
+                {steps.map((step, index) => (
+                  <Step key={index}>
+                    <StepIndicator
+                      bg={
+                        index === 0
+                          ? useColorModeValue("black", "white") // Distinct color for the top step
+                          : useColorModeValue("white", "gray.600") // Subtle background for others
+                      }
+                      borderColor={useColorModeValue("gray", "gray.300")}
+                    />
+                    <VStack align="start" spacing={1} ml={4}>
+                      <Text fontSize="md" fontWeight="semibold">
+                        {step.title}
+                      </Text>
+                      <Text fontSize="sm" color="gray.500">
+                        {step.institution}
+                      </Text>
+                      <Text fontSize="sm" color="gray.600">
+                        {step.description}
+                      </Text>
+                    </VStack>
+                    <StepSeparator borderColor="gray.300" />
+                  </Step>
+                ))}
+              </Stepper>
+            </Box>
+
+            <Box
+              mt={2}
+              height="fit-content"
+              p={6}
+              border="1px"
+              borderRadius="md"
+              borderColor={useColorModeValue("gray.200", "gray.700")}
+              bg={useColorModeValue("white", "#111111")}
+            >
+              <Text fontSize="xl" fontWeight="bold" mb={4}>
+                Experience
+              </Text>
+
+              <Stepper
+                size="xs"
+                colorScheme="gray"
+                orientation="vertical"
+                gap="0"
+              >
+                {expSteps.map((step, index) => (
+                  <Step key={index}>
+                    <StepIndicator
+                      bg={
+                        index === 0
+                          ? useColorModeValue("black", "white") // Distinct color for the top step
+                          : useColorModeValue("white", "gray.600") // Subtle background for others
+                      }
+                      borderColor={useColorModeValue("gray", "gray.300")}
+                    />
+                    <VStack align="start" spacing={1} ml={4}>
+                      <Text fontSize="md" fontWeight="semibold">
+                        {step.title}
+                      </Text>
+                      <Text fontSize="sm" color="gray.500">
+                        {step.company}
+                      </Text>
+                      <Text fontSize="sm" color="gray.600">
+                        {step.description}
+                      </Text>
+                    </VStack>
+                    <StepSeparator borderColor="gray.300" />
+                  </Step>
+                ))}
+              </Stepper>
+            </Box>
           </Box>
         </SimpleGrid>
 
