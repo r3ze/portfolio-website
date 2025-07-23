@@ -7,6 +7,7 @@ import {
   Box,
   Button,
   Text,
+  Link,
   Container,
   Center,
   FormControl,
@@ -226,7 +227,15 @@ function Project() {
 
             {/* Description */}
             <Text mb={4} fontSize="sm">
-              An online tool for creating and customizing professional resumes.
+              An online tool for creating and customizing professional resumes.{" "}
+              <Link
+                href="https://simple-resume-builder-sigma.vercel.app/"
+                color="blue.400"
+                isExternal
+                _hover={{ textDecoration: "underline" }}
+              >
+                Visit Site
+              </Link>
             </Text>
 
             {/* Carousel */}
