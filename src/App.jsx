@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,8 +9,9 @@ import Education from './components/Education';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ProjectDetail from './components/ProjectDetail';
 
-export default function App() {
+function HomePage() {
   return (
     <div className="min-h-screen bg-bg-primary text-text-primary antialiased">
       <Navbar />
@@ -25,5 +27,16 @@ export default function App() {
       </main>
       <Footer />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/projects/:id" element={<ProjectDetail />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

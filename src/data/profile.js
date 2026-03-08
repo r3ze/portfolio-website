@@ -3,29 +3,30 @@
 // ============================================================
 
 export const profile = {
-  name: "Your Name",
-  title: "Full Stack Developer",          // shown in hero typewriter
-  titles: [                               // rotates through these
-    "Full Stack Developer",
-    "UI/UX Enthusiast",
-    "Problem Solver",
-    "Open Source Contributor",
+  name: "Danzel Fernandez",
+  title: "Full Stack .NET Developer",
+  titles: [
+    "Full Stack .NET Developer",
+    "Software Engineer",
+    "Application Developer",
+    "C# / .NET Developer",
   ],
-  tagline: "I build fast, beautiful, and scalable web experiences.",
-  bio: `Hi! I'm a passionate developer who loves crafting clean code and intuitive user interfaces.
-I specialize in building full-stack web applications using modern technologies.
-When I'm not coding, you'll find me exploring new tech stacks, contributing to open source,
-or enjoying a good cup of coffee.`,
-  location: "Manila, Philippines",
-  email: "yourname@email.com",
-  phone: "+63 912 345 6789",              // leave blank "" to hide
-  avatar: "/images/avatar.jpg",           // put your photo in public/images/
-  resumeUrl: "/resume.pdf",              // put your PDF in public/
-  available: true,                        // shows "Available for work" badge
+  tagline: "Building scalable applications with C#, .NET, and modern web technologies.",
+  bio: `Hi! I'm a software developer specializing in building enterprise and web applications using C#, .NET, Blazor, and Oracle databases.
+I enjoy designing clean architectures, writing maintainable code, and creating efficient systems that solve real-world problems.
+I also work with automation and database-driven applications to improve productivity and workflows.
+
+When I'm not coding, I explore new technologies, build side projects, and continuously improve my development skills.`,
+  location: "Philippines",
+  email: "danzelfernandez0@gmail.com",
+  phone: "09071078639",
+  avatar: "/images/avatar.jpg",
+  resumeUrl: "/Danzel_Fernandez_Resume (1).pdf",
+  available: true,
   social: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    twitter: "https://twitter.com/yourusername",    // leave blank "" to hide
+    github: "https://github.com/r3ze",
+    linkedin: "https://www.linkedin.com/in/danzel-fernandez-9612262b7/",
+    twitter: "",
     facebook: "",
     instagram: "",
     website: "",

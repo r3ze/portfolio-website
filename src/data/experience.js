@@ -1,64 +1,42 @@
-// ============================================================
-//  EXPERIENCE DATA  —  Edit this file to update work history
-//  Displayed as a vertical timeline (latest first)
-// ============================================================
-
 export const experience = [
   {
     id: 1,
-    role: "Senior Frontend Developer",
-    company: "Tech Company Inc.",
-    companyUrl: "https://company.com",     // leave "" to disable link
-    location: "Manila, Philippines",
-    type: "Full-time",                     // "Full-time" | "Part-time" | "Freelance" | "Internship"
-    startDate: "Jan 2023",
-    endDate: "Present",                    // "Present" = current job
-    description: `Led the frontend development of a multi-tenant SaaS platform serving 10,000+ users.
-Architected a component library used across 5 product teams.
-Reduced page load times by 40% through code splitting and lazy loading.
-Mentored a team of 3 junior developers.`,
+    role: "Software Developer",
+    company: "TDK Philippines Corporation",
+    companyUrl: "",
+    location: "Santa Rosa, Laguna",
+    type: "Full-time",
+    startDate: "Aug 2025",
+    endDate: "Present",
+    description: `Design and develop internal web applications with C# Blazor and desktop tools with C#.
+Build RESTful APIs and integrate third-party APIs (e.g. weather, external data services) into applications.
+Develop automation scripts and tools that reduce manual work and improve team efficiency.
+Write and optimize SQL queries against Oracle Database for reporting and data management.`,
     achievements: [
-      "Reduced page load times by 40%",
-      "Built reusable component library",
-      "Led team of 3 junior developers",
+      "Developed internal web apps using C# Blazor",
+      "Built and integrated RESTful and third-party APIs",
+      "Created automation tools to streamline operations",
+      "Optimized Oracle DB queries for reporting",
     ],
-    tech: ["React", "TypeScript", "GraphQL", "AWS"],
+    tech: ["C#", "C# Blazor", "REST API", "Oracle DB", "SQLite", ".NET Framework"],
   },
   {
     id: 2,
-    role: "Full Stack Developer",
-    company: "Startup XYZ",
+    role: "Programmer Intern",
+    company: "Government Service Insurance System (GSIS)",
     companyUrl: "",
-    location: "Remote",
-    type: "Full-time",
-    startDate: "Jun 2021",
-    endDate: "Dec 2022",
-    description: `Developed and maintained multiple client-facing web applications.
-Built RESTful APIs serving mobile and web clients.
-Implemented CI/CD pipelines using GitHub Actions.`,
-    achievements: [
-      "Launched 3 major product features",
-      "Implemented CI/CD pipeline",
-      "Improved API response time by 30%",
-    ],
-    tech: ["React", "Node.js", "PostgreSQL", "Docker"],
-  },
-  {
-    id: 3,
-    role: "Web Development Intern",
-    company: "Agency ABC",
-    companyUrl: "",
-    location: "Makati, Philippines",
+    location: "Philippines",
     type: "Internship",
-    startDate: "Jan 2021",
-    endDate: "May 2021",
-    description: `Assisted in building client websites and landing pages.
-Collaborated with the design team to translate mockups into code.
-Gained hands-on experience with React and modern CSS.`,
+    startDate: "Feb 2025",
+    endDate: "Jun 2025",
+    description: `Solely designed and developed an internal system used by employees of the IT division.
+Handled the full development lifecycle independently — from requirements gathering to deployment.
+Gained hands-on exposure to enterprise-grade systems and government software standards.`,
     achievements: [
-      "Delivered 5 client projects on time",
-      "Learned modern React patterns",
+      "Solo-built an internal system adopted by GSIS employees",
+      "Managed full development lifecycle independently",
+      "Gained exposure to enterprise-grade government systems",
     ],
-    tech: ["HTML", "CSS", "JavaScript", "WordPress"],
+    tech: ["VBA", "SQL"],
   },
 ];

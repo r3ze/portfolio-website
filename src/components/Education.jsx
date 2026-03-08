@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import { GraduationCap, Award, ExternalLink, Calendar } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { GraduationCap, Award, ExternalLink, Calendar, X } from 'lucide-react';
 import { education, certifications } from '../data/education';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -90,39 +91,110 @@ function EducationCard({ item, index }) {
   );
 }
 
-function CertCard({ cert, index }) {
+function CertLightbox({ cert, onClose }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-6"
+      onClick={onClose}
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-5 right-5 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+      >
+        <X size={20} />
+      </button>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.2 }}
+        className="max-w-3xl w-full"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <img
+          src={cert.image}
+          alt={cert.title}
+          className="w-full max-h-[80vh] object-contain rounded-xl"
+        />
+        <div className="mt-4 text-center">
+          <p className="text-text-primary font-medium">{cert.title}</p>
+          <p className="text-text-muted text-sm mt-1">{cert.issuer} · {cert.date}</p>
+          {cert.credentialUrl && (
+            <a
+              href={cert.credentialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 mt-3 text-sm text-accent-cyan hover:underline"
+            >
+              <ExternalLink size={13} /> View Credential
+            </a>
+          )}
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function CertCard({ cert, index, onOpen }) {
   const { ref, isInView } = useScrollAnimation(0.1);
 
   return (
-    <motion.a
+    <motion.div
       ref={ref}
-      href={cert.credentialUrl || '#'}
-      target="_blank"
-      rel="noopener noreferrer"
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      className="group flex items-center gap-4 p-4 rounded-xl border hover:border-accent-cyan/30 transition-all duration-300 hover:-translate-y-0.5"
+      onClick={() => onOpen(cert)}
+      className="group cursor-pointer rounded-xl border overflow-hidden hover:border-accent-cyan/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
       style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}
     >
-      <div className="w-9 h-9 rounded-lg bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center shrink-0">
-        <Award size={16} className="text-accent-cyan" />
+      {/* Thumbnail */}
+      <div className="h-40 bg-white/3 flex items-center justify-center overflow-hidden">
+        {cert.image ? (
+          <img
+            src={cert.image}
+            alt={cert.title}
+            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+          />
+        ) : (
+          <Award size={32} className="text-accent-cyan opacity-40" />
+        )}
       </div>
-      <div className="flex-1 min-w-0">
-        <div className="text-sm font-medium text-text-primary group-hover:text-accent-cyan transition-colors duration-200 truncate">
-          {cert.title}
+
+      {/* Info */}
+      <div className="p-4 flex items-center gap-3">
+        <div className="w-8 h-8 rounded-lg bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center shrink-0">
+          <Award size={14} className="text-accent-cyan" />
         </div>
-        <div className="text-xs text-text-muted mt-0.5">
-          {cert.issuer} · {cert.date}
+        <div className="flex-1 min-w-0">
+          <div className="text-sm font-medium text-text-primary group-hover:text-accent-cyan transition-colors duration-200 truncate">
+            {cert.title}
+          </div>
+          <div className="text-xs text-text-muted mt-0.5 truncate">
+            {cert.issuer} · {cert.date}
+          </div>
         </div>
+        {cert.credentialUrl && (
+          <a
+            href={cert.credentialUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="text-text-muted hover:text-accent-cyan transition-colors duration-200 shrink-0"
+          >
+            <ExternalLink size={14} />
+          </a>
+        )}
       </div>
-      <ExternalLink size={14} className="text-text-muted group-hover:text-accent-cyan transition-colors duration-200 shrink-0" />
-    </motion.a>
+    </motion.div>
   );
 }
 
 export default function Education() {
   const { ref, isInView } = useScrollAnimation();
+  const [activeCert, setActiveCert] = useState(null);
 
   return (
     <section id="education" className="py-24 bg-bg-secondary relative">
@@ -165,14 +237,21 @@ export default function Education() {
               <Award size={20} className="text-accent-cyan" />
               Certifications
             </motion.h3>
-            <div className="grid sm:grid-cols-2 gap-3">
+            <div className="grid sm:grid-cols-2 gap-4">
               {certifications.map((cert, i) => (
-                <CertCard key={cert.id} cert={cert} index={i} />
+                <CertCard key={cert.id} cert={cert} index={i} onOpen={setActiveCert} />
               ))}
             </div>
           </>
         )}
       </div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {activeCert && (
+          <CertLightbox cert={activeCert} onClose={() => setActiveCert(null)} />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

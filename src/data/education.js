@@ -5,60 +5,87 @@
 export const education = [
   {
     id: 1,
-    degree: "Bachelor of Science in Computer Science",
-    school: "University of the Philippines",
-    schoolUrl: "https://up.edu.ph",       // leave "" to disable link
-    location: "Diliman, Quezon City",
-    startYear: 2017,
-    endYear: 2021,
-    gpa: "3.8 / 4.0",                    // leave "" to hide
+    degree: "Bachelor of Science in Information Technology",
+    school: "Laguna State Polytechnic University",
+    schoolUrl: "",       // leave "" to disable link
+    location: "Santa Cruz, Laguna",
+    startYear: 2021,
+    endYear: 2025,
+    gpa: "",                    // leave "" to hide
     description:
-      "Specialized in Software Engineering and Artificial Intelligence. Active member of the Computer Science Society.",
+      "Major in Web and Mobile Application Development",
     achievements: [
-      "Dean's List — 4 consecutive semesters",
-      "Best Capstone Project Award 2021",
-      "CS Society Vice President (2019–2020)",
+      "UMAK IT Skills Olympics 2023 - Participant",
+      "CCS Programming Competition - Champion",
     ],
   },
   {
     id: 2,
-    degree: "Senior High School — STEM Strand",
-    school: "Philippine Science High School",
+    degree: "Senior High School — ICT Strand",
+    school: "AVM Foundation",
     schoolUrl: "",
-    location: "Diliman, Quezon City",
-    startYear: 2015,
-    endYear: 2017,
+    location: "Pagsanjan, Laguna",
+    startYear: 2019,
+    endYear: 2021,
     gpa: "",
     description:
-      "Science, Technology, Engineering, and Mathematics track. Graduated with honors.",
+      "Graduated with honors.",
     achievements: [
-      "Graduated with High Honors",
-      "Regional Science Quiz Bee — 2nd Place",
+      "Graduated with High Honors"
     ],
   },
 ];
 
 // Certifications / Courses
+// image: path to certificate image in public/images/certificates/
+// credentialUrl: leave "" to hide the external link button
 export const certifications = [
   {
     id: 1,
-    title: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    date: "2023",
-    credentialUrl: "https://aws.amazon.com/certification/",
+    title: "AI: How the technology can be utilized responsibly and reliably as Human support",
+    issuer: "DICT",
+    date: "2024",
+    image: "/images/certificates/1.png",
+    credentialUrl: "",
   },
   {
     id: 2,
-    title: "Meta Front-End Developer Certificate",
-    issuer: "Meta / Coursera",
-    date: "2022",
-    credentialUrl: "https://coursera.org",
+    title: "Cybersecurity Awareness: Empowering Students to Take Control of their Digital Lives",
+    issuer: "Laguna State Polytechnic University - Santa Cruz",
+    date: "2024",
+    image: "/images/certificates/a.jpg",
+    credentialUrl: "",
   },
   {
     id: 3,
-    title: "Google UX Design Certificate",
-    issuer: "Google / Coursera",
-    date: "2022",
-    credentialUrl: "https://coursera.org",
+    title: "Cyber Attack Readiness: Proactive Measures for a Secure Future",
+    issuer: "Laguna State Polytechnic University - Santa Cruz",
+    date: "2024",
+    image: "/images/certificates/Messenger_creation_08ecf84a-dd54-4fe5-a2a1-3ea371f7c646.png",
+    credentialUrl: "",
+  },
+  {
+    id: 4,
+    title: "Proxy Server",
+    issuer: "Laguna State Polytechnic University - Santa Cruz",
+    date: "2024",
+    image: "/images/certificates/Messenger_creation_5ae80437-b237-4c39-80f1-7cecc9a335f5.jpg",
+    credentialUrl: "",
+  },
+  {
+    id: 5,
+    title: "Operating Systems Basic",
+    issuer: "Cisco",
+    date: "2024",
+    image: "/images/certificates/cicos1.png",
+    credentialUrl: "",
+  },
+  {
+    id: 6,
+    title: "operating Systems Basic",
+    issuer: "Cisco",
+    date: "2024",
+    image: "/images/certificates/cisco2.png",
+    credentialUrl: "",
   },
 ];

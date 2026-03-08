@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Star, FolderOpen } from 'lucide-react';
+import { ExternalLink, Github, Star, FolderOpen, ArrowRight } from 'lucide-react';
 import { projects } from '../data/projects';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -35,6 +36,12 @@ function ProjectCard({ project, index, featured }) {
       }`}
       style={{ background: 'rgba(255,255,255,0.02)', borderColor: 'rgba(255,255,255,0.06)' }}
     >
+      {/* Clickable overlay linking to detail page */}
+      <Link
+        to={`/projects/${project.id}`}
+        className="absolute inset-0 z-10"
+        aria-label={`View details for ${project.title}`}
+      />
       {/* Hover glow overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent-cyan/0 to-accent-purple/0 group-hover:from-accent-cyan/3 group-hover:to-accent-purple/3 transition-all duration-500 pointer-events-none" />
 
@@ -90,7 +97,7 @@ function ProjectCard({ project, index, featured }) {
         </div>
 
         {/* Action buttons */}
-        <div className="flex items-center gap-3">
+        <div className="relative z-20 flex items-center gap-3 flex-wrap">
           {project.liveUrl && (
             <a
               href={project.liveUrl}
@@ -113,6 +120,13 @@ function ProjectCard({ project, index, featured }) {
               GitHub
             </a>
           )}
+          <Link
+            to={`/projects/${project.id}`}
+            className="ml-auto flex items-center gap-1.5 text-xs font-medium text-text-muted hover:text-accent-cyan transition-colors duration-200 group/link"
+          >
+            Details
+            <ArrowRight size={12} className="group-hover/link:translate-x-0.5 transition-transform duration-200" />
+          </Link>
         </div>
       </div>
     </motion.article>

@@ -19,6 +19,7 @@ function Lightbox({ image, onClose }) {
     <AnimatePresence>
       {image && (
         <motion.div
+          key="lightbox"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -31,17 +32,17 @@ function Lightbox({ image, onClose }) {
             exit={{ scale: 0.85, opacity: 0 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-4xl max-h-[90vh] w-full"
+            className="relative flex flex-col items-center max-w-4xl w-full"
           >
             <img
               src={image.src}
               alt={image.alt}
-              className="w-full h-full object-contain rounded-xl"
+              className="max-h-[80vh] max-w-full w-auto h-auto object-contain rounded-xl"
             />
             {image.caption && (
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 rounded-b-xl">
-                <p className="text-text-primary text-sm text-center">{image.caption}</p>
-              </div>
+              <p className="text-text-primary text-sm text-center mt-3 opacity-80">
+                {image.caption}
+              </p>
             )}
             <button
               onClick={onClose}
